@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sushant Mohurle | Electronics Engineer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Sushant Mohurle, an Electronics Engineer building practical technology across electronics, IoT, software development and AI.">
+  <meta name="author" content="Sushant Mohurle">
+  <meta name="theme-color" content="#09090a">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sushant Mohurle | Electronics Engineer">
+  <meta property="og:description"
+    content="Electronics Engineer passionate about electronics, software development, IoT and AI.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sushant Mohurle | Electronics Engineer">
+  <meta name="twitter:description" content="Building practical technology across electronics, IoT, software and AI.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2309090a'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23f4f4f2'%3ES%3C/text%3E%3Ccircle cx='48' cy='46' r='4' fill='%23dfe6ff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Sushant Mohurle","jobTitle":"Electronics Engineer","description":"Electronics Engineer interested in electronics, software development, IoT and AI.","sameAs":["https://github.com/sushant4555","https://www.linkedin.com/in/sushant-mohurle","https://www.instagram.com/sushant_mohurle"]}
+</script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <noscript>
+    <div class="noscript">This portfolio needs JavaScript to display its content.</div>
+  </noscript>
+
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="nav-wrap" id="navWrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#home" id="brandLink" aria-label="Home"></a>
+      <ul class="nav-links" id="navLinks"></ul>
+      <div class="nav-tools">
+        <span id="cvSlot"></span>
+        <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="menu"><i></i><i></i><i></i></button>
+      </div>
+    </nav>
+  </header>
+  <div class="menu" id="menu" aria-label="Mobile menu"></div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-glow g1" aria-hidden="true"></div>
+      <div class="hero-glow g2" aria-hidden="true"></div>
+      <div class="signal" aria-hidden="true">
+        <svg viewBox="0 0 2400 120" preserveAspectRatio="none" fill="none">
+          <path id="wavePath" stroke="rgba(223,230,255,.55)" stroke-width="1.2" d="" />
+        </svg>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-content" id="heroContent">
+          <p class="hello" data-reveal id="heroHello"></p>
+          <h1 class="hero-title" id="heroTitle" data-title></h1>
+          <p class="hero-intro" data-reveal style="--dl:.45s" id="heroIntro"></p>
+          <div class="cta" data-reveal style="--dl:.6s">
+            <a class="btn" href="#projects" data-magnetic>View My Work</a>
+            <a class="btn btn-ghost" href="#contact" data-magnetic>Contact Me</a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap" data-reveal style="--dl:.3s">
+          <div class="portrait" id="portrait">
+            <div class="portrait-glow" aria-hidden="true"></div>
+            <div class="portrait-frame" id="portraitFrame"></div>
+            <span class="corner tl" aria-hidden="true"></span>
+            <span class="corner br" aria-hidden="true"></span>
+            <div class="badge"><i class="dot" aria-hidden="true"></i><span id="heroStatus"></span></div>
+            <div class="chip" id="heroChip"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-ind" aria-hidden="true"><span>SCROLL TO EXPLORE</span><i></i></div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="title" id="aboutTitle" data-title><span class="ln"><span>About me</span></span></h2>
+        </div>
+        <p class="statement words" id="statement"></p>
+        <div class="about-grid" id="aboutGrid" data-stagger></div>
+        <div class="stats" id="stats" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="section" id="expertise" aria-labelledby="expertiseTitle">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="title" id="expertiseTitle" data-title><span class="ln"><span>What I</span></span><span
+              class="ln"><span style="--d:.1s">work with</span></span></h2>
+          <p class="lede" data-reveal id="expertiseLede"></p>
+        </div>
+        <div class="x-grid" id="expertiseGrid" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skillsTitle">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="title" id="skillsTitle" data-title><span class="ln"><span>Technologies</span></span></h2>
+          <p class="lede" data-reveal id="skillsLede"></p>
+        </div>
+        <div class="s-grid" id="skillsGrid" data-stagger></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects" aria-labelledby="projectsTitle">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="title" id="projectsTitle" data-title><span class="ln"><span>Selected</span></span><span
+              class="ln"><span style="--d:.1s">projects</span></span></h2>
+          <p class="lede" data-reveal id="projectsLede"></p>
+        </div>
+        <div class="projects" id="projectsList"></div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section" id="certifications" aria-labelledby="certTitle">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="title" id="certTitle" data-title><span class="ln"><span>Certifications</span></span></h2>
+          <p class="lede" data-reveal id="certLede"></p>
+        </div>
+        <ul class="certs" id="certList"></ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contactTitle">
+      <div class="wrap c-grid">
+        <div>
+          <h2 class="c-title" id="contactTitle" data-title><span class="ln"><span>Let's build</span></span><span
+              class="ln"><span style="--d:.1s">something</span></span><span class="ln"><span
+                style="--d:.2s">together.</span></span></h2>
+          <p class="c-sub" data-reveal id="contactSub"></p>
+          <ul class="c-list" id="contactList" data-stagger></ul>
+        </div>
+
+        <form class="form glass" id="contactForm" data-reveal style="--dl:.15s" aria-labelledby="formTitle">
+          <h3 id="formTitle">Send a message</h3>
+          <div class="f-row">
+            <div class="field"><input id="fFirst" name="first" type="text" placeholder=" " autocomplete="given-name"
+                required><label for="fFirst">First name</label></div>
+            <div class="field"><input id="fLast" name="last" type="text" placeholder=" " autocomplete="family-name"
+                required><label for="fLast">Last name</label></div>
+          </div>
+          <div class="field"><input id="fEmail" name="email" type="email" placeholder=" " autocomplete="email"
+              required><label for="fEmail">Email address</label></div>
+          <div class="field"><textarea id="fMsg" name="message" placeholder=" " required></textarea><label
+              for="fMsg">Message</label></div>
+          <button class="btn" type="submit" data-magnetic>Send Message <svg class="ic ic-r" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg></button>
+          <p class="f-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="f-top">
+        <div>
+          <p class="f-brand" id="fBrand"></p>
+          <p class="f-tag" id="fTag"></p>
+        </div>
+        <nav class="f-links" id="fLinks" aria-label="Social links"></nav>
+      </div>
+      <div class="f-bottom">
+        <span id="copyright"></span>
+        <a href="#home">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
