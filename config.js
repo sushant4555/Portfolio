@@ -14,10 +14,10 @@ window.PORTFOLIO = {
   photo: { src: "assets/photo.webp", alt: "Portrait of Sushant Mohurle" },
 
   contact: {
-    email: "",                              // e.g. "you@gmail.com". Enables the form and email links.
-    emailPlaceholder: "your.email@example.com",
-    location: "City, Country",
-    cv: ""                                  // link to your CV (PDF or Drive URL)
+    email: "sushantmohurle69@gmail.com",   // e.g. "you@gmail.com". Enables the form and email links.
+    emailPlaceholder: "sushantmohurle69@gmail.com",
+    location: "Yavatmal, Maharashtra, India",
+    cv: "assets/sushant-cv.pdf"                                  // link to your CV (PDF or Drive URL)
   },
 
   social: {
@@ -31,6 +31,7 @@ window.PORTFOLIO = {
     { id: "about", label: "About" },
     { id: "expertise", label: "Expertise" },
     { id: "skills", label: "Skills" },
+    { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
     { id: "certifications", label: "Certifications" },
     { id: "contact", label: "Contact" }
@@ -56,10 +57,10 @@ window.PORTFOLIO = {
     ],
     // Add real figures later, e.g. { value: "3", label: "Projects built" }
     stats: [
-      { value: "BTech", label: "Student" },
-      { value: "Multiple", label: "Projects" },
-      { value: "Technical", label: "Skills" },
-      { value: "Continuous", label: "Learning" }
+      { value: "BTech", label: "EXTC Student" },
+      { value: "Raymond", label: "Inplant Intern" },
+      { value: "Multiple", label: "Projects Built" },
+      { value: "Verified", label: "Certifications" }
     ]
   },
 
@@ -82,6 +83,29 @@ window.PORTFOLIO = {
       { title: "Programming", items: ["C", "C++", "Java", "Python"] },
       { title: "Web & Databases", items: ["HTML", "CSS", "Node.js", "MySQL"] },
       { title: "AI", items: ["LLMs", "Prompt Engineering"] }
+    ]
+  },
+
+  experience: {
+    lede: "Practical industrial training, plant engineering exposure and real-world technology operations.",
+    items: [
+      {
+        role: "Inplant Trainee (Engineering Intern)",
+        badge: "Industrial Internship",
+        company: "Raymond UCO Denim Pvt. Limited",
+        location: "Yavatmal, Maharashtra, India",
+        period: "May 2026 – June 2026",
+        duration: "1 Month (10/05/2026 – 10/06/2026)",
+        ref: "RUDPL/HR&A/YTML/2026",
+        summary: "Successfully completed intensive inplant training at Raymond UCO Denim's manufacturing plant in Lohara, Yavatmal. Gained comprehensive hands-on exposure to industrial operations, manufacturing processes, automation systems, and engineering workflows in a high-scale production facility.",
+        highlights: [
+          "Hands-on exposure to industrial automation, electrical and electronic control systems, and instrumentation.",
+          "Observed real-world plant operations, process monitoring, quality assurance protocols, and manufacturing workflows.",
+          "Recognized and commended by management for being hardworking, enthusiastic, and cooperative throughout the training."
+        ],
+        tags: ["Industrial Automation", "Manufacturing Systems", "Instrumentation", "Plant Operations", "Electronics"],
+        url: "assets/certificates/raymond-internship.pdf"
+      }
     ]
   },
 
@@ -116,11 +140,43 @@ window.PORTFOLIO = {
   },
 
   certifications: {
-    lede: "Sample entries below. Replace them with your own certificates.",
+    lede: "Verified certifications and credentials in software development and technology.",
     items: [
-      { name: "Certification Name", org: "Issuing Organization", year: "20XX", url: "", sample: true },
-      { name: "Certification Name", org: "Issuing Organization", year: "20XX", url: "", sample: true },
-      { name: "Certification Name", org: "Issuing Organization", year: "20XX", url: "", sample: true }
+      {
+        name: "Industrial Inplant Training & Internship",
+        org: "Raymond UCO Denim Pvt. Limited • Ref: RUDPL/HR&A/YTML/2026",
+        year: "2026",
+        url: "assets/certificates/raymond-internship.pdf",
+        sample: false
+      },
+      {
+        name: "Core Java Programming",
+        org: "NICE Computer Education • Certificate ID: COREJAVA/2025-26/M161",
+        year: "2026",
+        url: "assets/certificates/Javac.pdf",
+        sample: false
+      },
+      {
+        name: "Getting Started with Full Stack Java Development",
+        org: "Simplilearn SkillUP • Certificate Code: 10811255",
+        year: "2026",
+        url: "assets/certificates/getting-started-with-full-stack-java-development.pdf",
+        sample: false
+      },
+      {
+        name: "Advanced Python",
+        org: "Simplilearn SkillUP • Certificate Code: 10836264",
+        year: "2026",
+        url: "assets/certificates/advanced-python.pdf",
+        sample: false
+      },
+      {
+        name: "C Programming Basics",
+        org: "Simplilearn SkillUP • Certificate Code: 10804036",
+        year: "2026",
+        url: "assets/certificates/c-programming-basics.pdf",
+        sample: false
+      }
     ]
   },
 

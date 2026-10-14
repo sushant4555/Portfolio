@@ -241,6 +241,34 @@ main,footer{position:relative;z-index:2}
 @media (min-width:860px){.s-grid{grid-template-columns:repeat(2,1fr)}.s-group:last-child:nth-child(odd){grid-column:1/-1}}
 
 /* ==========================================================================
+   EXPERIENCE / INTERNSHIP
+   ========================================================================== */
+.exp-list{display:flex;flex-direction:column;gap:clamp(24px,3.5vw,40px)}
+.exp-card{position:relative;padding:clamp(28px,4vw,44px);border-radius:28px;display:flex;flex-direction:column;gap:24px;overflow:hidden;transition:transform .6s var(--ease),border-color .4s,box-shadow .4s}
+.exp-card:hover{border-color:var(--line-2);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 30px 80px -30px var(--glow)}
+.exp-top{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:22px}
+.exp-role-wrap{display:flex;flex-direction:column;gap:8px}
+.exp-badges{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.exp-badge{display:inline-flex;align-items:center;padding:5px 14px;border-radius:999px;background:rgba(223,230,255,.08);border:1px solid var(--line-2);color:var(--text);font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.exp-role{font:700 clamp(1.4rem,2.8vw,2.2rem)/1.15 var(--f-display);letter-spacing:-.03em}
+.exp-company{font-size:1.06rem;font-weight:500;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.exp-company span.loc{color:var(--muted);font-size:.92rem;font-weight:400;display:inline-flex;align-items:center;gap:4px}
+.exp-meta{text-align:right;display:flex;flex-direction:column;gap:4px}
+.exp-period{font:600 1.08rem var(--f-display);color:var(--text)}
+.exp-duration{font-size:.85rem;color:var(--muted)}
+.exp-body{display:flex;flex-direction:column;gap:18px}
+.exp-summary{color:var(--muted);font-size:1.02rem;line-height:1.6;max-width:56rem}
+.exp-highlights{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+.exp-highlight-item{display:flex;align-items:flex-start;gap:12px;color:var(--muted);font-size:.95rem;line-height:1.55}
+.exp-highlight-item::before{content:"";display:inline-block;width:6px;height:6px;margin-top:8px;border-radius:50%;background:#dfe6ff;box-shadow:0 0 10px rgba(223,230,255,.8);flex-shrink:0}
+.exp-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:10px}
+.ic-inline{width:14px;height:14px;display:inline-block;vertical-align:-2px}
+@media (max-width:760px){
+  .exp-top{flex-direction:column;align-items:flex-start}
+  .exp-meta{text-align:left}
+}
+
+/* ==========================================================================
    PROJECTS
    ========================================================================== */
 .projects{display:flex;flex-direction:column;gap:clamp(28px,4vw,52px)}
@@ -338,3 +366,27 @@ a.c-row:hover .go{transform:translate(3px,-3px);color:var(--text)}
 .pulse.d2{animation-delay:1.3s}
 @keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(4);opacity:0}}
 .noscript{position:relative;z-index:5;padding:16px;text-align:center;background:#1a1a1d;color:var(--muted)}
+
+/* ==========================================================================
+   CERTIFICATE MODAL POPUP
+   ========================================================================== */
+.cert-modal-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:clamp(14px,3vw,36px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s var(--ease),visibility .35s}
+.cert-modal-overlay.active{opacity:1;visibility:visible;pointer-events:auto}
+.cert-modal-backdrop{position:absolute;inset:0;background:rgba(6,6,8,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.cert-modal-box{position:relative;z-index:2;width:100%;max-width:980px;height:min(90vh,880px);display:flex;flex-direction:column;background:rgba(16,17,22,.96);border:1px solid var(--line-2);border-radius:24px;box-shadow:0 40px 100px -20px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.1);overflow:hidden;transform:scale(.94) translateY(16px);transition:transform .4s var(--ease)}
+.cert-modal-overlay.active .cert-modal-box{transform:scale(1) translateY(0)}
+.cert-modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);flex-shrink:0}
+.cert-modal-title{font:600 clamp(1.1rem,2.2vw,1.35rem)/1.2 var(--f-display);letter-spacing:-.02em;color:var(--text)}
+.cert-modal-sub{font-size:.86rem;color:var(--muted);margin-top:4px}
+.cert-modal-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cert-modal-close{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--line-2);color:var(--text);font-size:1.6rem;line-height:1;cursor:pointer;transition:background-color .25s,transform .25s,border-color .25s}
+.cert-modal-close:hover{background:rgba(255,255,255,.15);border-color:var(--text);transform:scale(1.08)}
+.cert-modal-body{position:relative;flex:1;width:100%;height:100%;background:#09090b;overflow:hidden}
+.cert-modal-body iframe{width:100%;height:100%;border:0;display:block;background:#121316}
+body.modal-open{overflow:hidden!important}
+@media (max-width:680px){
+  .cert-modal-head{flex-direction:column;align-items:flex-start;padding:16px}
+  .cert-modal-actions{width:100%;justify-content:space-between}
+  .cert-modal-box{height:94vh;border-radius:18px}
+}
+

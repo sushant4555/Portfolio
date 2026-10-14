@@ -109,10 +109,13 @@
       $('#navLinks').innerHTML = P.nav.map(function (n) {
         return '<li><a href="#' + esc(n.id) + '" data-nav="' + esc(n.id) + '">' + esc(n.label) + '</a></li>';
       }).join('') + '<li class="nav-ind" id="navInd" aria-hidden="true"></li>';
-      $('#cvSlot').outerHTML = '<a class="btn btn-sm" ' + ext(P.contact.cv, 'CV link') + ' data-magnetic>View CV ' + icon('ur', 'ic-ur') + '</a>';
+      var cvAction = P.contact.cv
+        ? '<a class="btn btn-sm" href="' + esc(P.contact.cv) + '" data-cert-modal data-cert-title="' + esc(P.site.name + ' — Curriculum Vitae (CV)') + '" data-cert-sub="Electronics &amp; Telecommunication Engineering • Resume" data-magnetic>View CV ' + icon('ur', 'ic-ur') + '</a>'
+        : '<a class="btn btn-sm" href="#" data-placeholder="CV link" data-magnetic>View CV ' + icon('ur', 'ic-ur') + '</a>';
+      $('#cvSlot').outerHTML = cvAction;
       $('#menu').innerHTML = P.nav.map(function (n, i) {
         return '<a class="m-link" style="--i:' + i + '" href="#' + esc(n.id) + '" data-nav="' + esc(n.id) + '">' + esc(n.label) + '</a>';
-      }).join('');
+      }).join('') + (P.contact.cv ? '<div style="margin-top:24px"><a class="btn btn-sm" href="' + esc(P.contact.cv) + '" data-cert-modal data-cert-title="' + esc(P.site.name + ' — Curriculum Vitae (CV)') + '" data-cert-sub="Electronics &amp; Telecommunication Engineering • Resume">View CV ' + icon('ur', 'ic-ur') + '</a></div>' : '');
     }
   };
 
@@ -178,6 +181,56 @@
     }
   };
 
+  var Experience = {
+    render: function () {
+      var exp = P.experience;
+      if (!exp || !exp.items || !exp.items.length) return;
+      var lede = $('#expLede');
+      if (lede) lede.textContent = exp.lede;
+      var list = $('#expList');
+      if (!list) return;
+      list.innerHTML = exp.items.map(function (item) {
+        var highlights = (item.highlights || []).map(function (h) {
+          return '<li class="exp-highlight-item"><span>' + esc(h) + '</span></li>';
+        }).join('');
+        var tags = (item.tags || []).map(function (t) {
+          return '<li class="tag">' + esc(t) + '</li>';
+        }).join('');
+        var certBtn = item.url
+          ? '<a class="btn btn-sm btn-ghost" href="' + esc(item.url) + '" data-cert-modal data-cert-title="' + esc(item.role + ' • ' + item.company) + '" data-cert-sub="' + esc(item.company + (item.ref ? ' • Ref: ' + item.ref : '')) + '" data-magnetic>View Certificate ' + icon('ur', 'ic-ur') + '</a>'
+          : '';
+
+        return '<article class="exp-card glass spot lift" data-reveal>' +
+          '<div class="exp-top">' +
+            '<div class="exp-role-wrap">' +
+              '<div class="exp-badges">' +
+                (item.badge ? '<span class="exp-badge">' + esc(item.badge) + '</span>' : '') +
+                (item.ref ? '<span class="sample">Ref: ' + esc(item.ref) + '</span>' : '') +
+              '</div>' +
+              '<h3 class="exp-role">' + esc(item.role) + '</h3>' +
+              '<div class="exp-company">' +
+                '<span>' + esc(item.company) + '</span>' +
+                (item.location ? '<span class="loc">• ' + icon('pin', 'ic-inline') + ' ' + esc(item.location) + '</span>' : '') +
+              '</div>' +
+            '</div>' +
+            '<div class="exp-meta">' +
+              '<span class="exp-period">' + esc(item.period) + '</span>' +
+              (item.duration ? '<span class="exp-duration">' + esc(item.duration) + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="exp-body">' +
+            (item.summary ? '<p class="exp-summary">' + esc(item.summary) + '</p>' : '') +
+            (highlights ? '<ul class="exp-highlights">' + highlights + '</ul>' : '') +
+          '</div>' +
+          '<div class="exp-footer">' +
+            (tags ? '<ul class="tags">' + tags + '</ul>' : '<div></div>') +
+            certBtn +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+  };
+
   var Projects = {
     render: function () {
       $('#projectsLede').textContent = P.projects.lede;
@@ -199,9 +252,12 @@
     render: function () {
       $('#certLede').textContent = P.certifications.lede;
       $('#certList').innerHTML = P.certifications.items.map(function (c) {
+        var action = c.url
+          ? '<a class="btn btn-sm btn-ghost" href="' + esc(c.url) + '" data-cert-modal data-cert-title="' + esc(c.name) + '" data-cert-sub="' + esc(c.org) + '" data-magnetic>View Certificate ' + icon('ur', 'ic-ur') + '</a>'
+          : '<a class="btn btn-sm btn-ghost" href="#" data-placeholder="Certificate link" data-magnetic>View Certificate ' + icon('ur', 'ic-ur') + '</a>';
         return '<li class="cert" data-reveal><div><h3>' + esc(c.name) + (c.sample ? '<span class="sample">Placeholder</span>' : '') + '</h3><p class="org">' + esc(c.org) + '</p></div>' +
           '<span class="yr">' + esc(c.year) + '</span>' +
-          '<a class="btn btn-sm btn-ghost" ' + ext(c.url, 'Certificate link') + ' data-magnetic>View Certificate ' + icon('ur', 'ic-ur') + '</a></li>';
+          action + '</li>';
       }).join('');
     }
   };
@@ -491,14 +547,86 @@
     });
   }
 
+  /* ---- Certificate Modal Viewer ---- */
+  var CertModal = {
+    modal: null,
+    frame: null,
+    title: null,
+    sub: null,
+    openBtn: null,
+    downloadBtn: null,
+    init: function () {
+      this.modal = $('#certModal');
+      if (!this.modal) return;
+      this.frame = $('#certModalFrame');
+      this.title = $('#certModalTitle');
+      this.sub = $('#certModalSub');
+      this.openBtn = $('#certModalOpen');
+      this.downloadBtn = $('#certModalDownload');
+
+      var self = this;
+      document.addEventListener('click', function (e) {
+        var link = e.target.closest && e.target.closest('a[data-cert-modal]');
+        if (!link) return;
+        var url = link.getAttribute('href');
+        if (!url || url === '#') return;
+        e.preventDefault();
+        var title = link.getAttribute('data-cert-title') || 'Certificate';
+        var sub = link.getAttribute('data-cert-sub') || '';
+        self.open(url, title, sub);
+      });
+
+      var closeBtn = $('#certModalClose');
+      var backdrop = $('#certModalBackdrop');
+      if (closeBtn) closeBtn.addEventListener('click', function () { self.close(); });
+      if (backdrop) backdrop.addEventListener('click', function () { self.close(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && self.modal && self.modal.classList.contains('active')) {
+          self.close();
+        }
+      });
+    },
+    open: function (url, title, sub) {
+      if (!this.modal) return;
+      if (this.title) this.title.textContent = title;
+      if (this.sub) this.sub.textContent = sub;
+      if (this.openBtn) this.openBtn.setAttribute('href', url);
+      if (this.downloadBtn) {
+        this.downloadBtn.setAttribute('href', url);
+        var filename = url.split('/').pop() || 'document.pdf';
+        this.downloadBtn.setAttribute('download', filename);
+      }
+      var embedUrl = url;
+      if (embedUrl.indexOf('drive.google.com/file/d/') !== -1 && embedUrl.indexOf('/view') !== -1) {
+        embedUrl = embedUrl.replace('/view', '/preview');
+      }
+      if (this.frame) {
+        this.frame.src = embedUrl;
+      }
+      this.modal.classList.add('active');
+      this.modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    },
+    close: function () {
+      if (!this.modal) return;
+      this.modal.classList.remove('active');
+      this.modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      if (this.frame) {
+        this.frame.src = '';
+      }
+    }
+  };
+
   /* ==========================================================================
      BOOT
      ========================================================================== */
   function boot() {
     try {
       Navbar.render(); Hero.render(); About.render(); Expertise.render(); Skills.render();
-      Projects.render(); Certifications.render(); Contact.render(); Footer.render();
-      initReveal(); initSpy(); initMenu(); initPointerFx(); initCursor(); initScroll(); initParticles(); initForm();
+      Experience.render(); Projects.render(); Certifications.render(); Contact.render(); Footer.render();
+      initReveal(); initSpy(); initMenu(); initPointerFx(); initCursor(); initScroll(); initParticles(); initForm(); CertModal.init();
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
     } catch (err) {
       // Never leave the page blank: fall back to a static, fully visible layout
