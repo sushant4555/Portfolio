@@ -129,6 +129,13 @@ window.PORTFOLIO = {
         tags: ["Electronics", "Gas Sensor", "Alert System"],
         art: "gas", image: "", demo: "", github: ""
       },
+      {
+        title: "Environmental Monitoring System",
+        kind: "IoT",
+        description: "An IoT-based monitoring system using sensors and Arduino to monitor environmental parameters.",
+        tags: ["IoT", "Arduino", "Sensors"],
+        art: "env", image: "", demo: "", github: ""
+      }
     ]
   },
 

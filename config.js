@@ -21,8 +21,8 @@ window.PORTFOLIO = {
   },
 
   social: {
-    github:    { url: "https://github.com/sushant4555", handle: "github.com/sushant4555" },
-    linkedin:  { url: "https://www.linkedin.com/in/sushant-mohurle", handle: "linkedin.com/in/sushant-mohurle" },
+    github: { url: "https://github.com/sushant4555", handle: "github.com/sushant4555" },
+    linkedin: { url: "https://www.linkedin.com/in/sushant-mohurle", handle: "linkedin.com/in/sushant-mohurle" },
     instagram: { url: "https://www.instagram.com/sushant_mohurle", handle: "instagram.com/sushant_mohurle" }
   },
 
@@ -50,9 +50,9 @@ window.PORTFOLIO = {
   about: {
     statement: "I'm a BTech Electronics and Telecommunication Engineering student who enjoys working where hardware meets software. From microcontrollers and sensors to web apps and intelligent systems, I like turning ideas into practical technology that solves real problems.",
     cards: [
-      { icon: "chip",  title: "Electronics", text: "Circuits, sensors and microcontrollers: the physical foundation of what I build." },
-      { icon: "code",  title: "Software Development", text: "Readable, practical code in C, C++, Java, Python and Node.js." },
-      { icon: "iot",   title: "IoT & Embedded Systems", text: "Connecting hardware to the real world with sensors, Arduino and live data." },
+      { icon: "chip", title: "Electronics", text: "Circuits, sensors and microcontrollers: the physical foundation of what I build." },
+      { icon: "code", title: "Software Development", text: "Readable, practical code in C, C++, Java, Python and Node.js." },
+      { icon: "iot", title: "IoT & Embedded Systems", text: "Connecting hardware to the real world with sensors, Arduino and live data." },
       { icon: "brain", title: "AI & Emerging Technology", text: "Working with LLMs and prompt engineering to shape what technology does next." }
     ],
     // Add real figures later, e.g. { value: "3", label: "Projects built" }
@@ -67,12 +67,12 @@ window.PORTFOLIO = {
   expertise: {
     lede: "Where hardware meets software, and curiosity meets practice.",
     items: [
-      { icon: "chip",   title: "Electronics & Embedded Systems", text: "Designing and building microcontroller-based circuits and sensor systems." },
-      { icon: "iot",    title: "IoT Development", text: "Connecting sensors and devices to monitor and respond to the real world." },
-      { icon: "globe",  title: "Web & Databases", text: "Building web pages and back-end services with HTML, CSS, Node.js and MySQL." },
-      { icon: "term",   title: "Programming", text: "Writing clear logic in C, C++, Java and Python." },
-      { icon: "brain",  title: "AI & LLMs", text: "Working with LLMs and prompt engineering to build smarter, more useful tools." },
-      { icon: "bulb",   title: "Problem Solving", text: "Breaking complex problems into simple, testable steps." }
+      { icon: "chip", title: "Electronics & Embedded Systems", text: "Designing and building microcontroller-based circuits and sensor systems." },
+      { icon: "iot", title: "IoT Development", text: "Connecting sensors and devices to monitor and respond to the real world." },
+      { icon: "globe", title: "Web & Databases", text: "Building web pages and back-end services with HTML, CSS, Node.js and MySQL." },
+      { icon: "term", title: "Programming", text: "Writing clear logic in C, C++, Java and Python." },
+      { icon: "brain", title: "AI & LLMs", text: "Working with LLMs and prompt engineering to build smarter, more useful tools." },
+      { icon: "bulb", title: "Problem Solving", text: "Breaking complex problems into simple, testable steps." }
     ]
   },
 

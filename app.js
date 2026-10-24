@@ -49,56 +49,56 @@
   var FONT = "font-family=\"Space Grotesk,Inter,Arial,sans-serif\"";
   var ART = {
     match: '<svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract illustration of candidates matched to opportunities" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><radialGradient id="m-bg" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#23262e"/><stop offset="1" stop-color="#0a0a0c"/></radialGradient>' +
-      '<linearGradient id="m-ln" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".15"/><stop offset=".5" stop-color="#dfe6ff"/><stop offset="1" stop-color="#fff" stop-opacity=".15"/></linearGradient></defs>' +
+      '<defs><radialGradient id="m-bg" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#141822"/><stop offset="1" stop-color="#0A0A0A"/></radialGradient>' +
+      '<linearGradient id="m-ln" x1="0" x2="1"><stop offset="0" stop-color="#007BA7" stop-opacity=".25"/><stop offset=".5" stop-color="#FF2D95"/><stop offset="1" stop-color="#007BA7" stop-opacity=".25"/></linearGradient></defs>' +
       '<rect width="800" height="600" fill="url(#m-bg)"/>' +
-      '<g fill="none" stroke="#fff" stroke-opacity=".13" stroke-width="1.2">' +
+      '<g fill="none" stroke="#007BA7" stroke-opacity=".18" stroke-width="1.2">' +
       '<path d="M180 120C400 120 400 220 620 220"/><path d="M180 220C400 220 400 120 620 120"/><path d="M180 220C400 220 400 320 620 320"/><path d="M180 320C400 320 400 420 620 420"/><path d="M180 420C400 420 400 320 620 320"/><path d="M180 420C400 420 400 520 620 520"/><path d="M180 520C400 520 400 420 620 420"/><path d="M180 120C400 120 400 120 620 120"/></g>' +
       '<path d="M180 320H620" stroke="url(#m-ln)" stroke-width="2.6" fill="none"/>' +
-      '<g fill="#111216" stroke="#fff" stroke-opacity=".4" stroke-width="1.3"><circle cx="180" cy="120" r="15"/><circle cx="180" cy="220" r="15"/><circle cx="180" cy="420" r="15"/><circle cx="180" cy="520" r="15"/><circle cx="620" cy="120" r="15"/><circle cx="620" cy="220" r="15"/><circle cx="620" cy="420" r="15"/><circle cx="620" cy="520" r="15"/></g>' +
-      '<g fill="#fff" fill-opacity=".55"><circle cx="180" cy="120" r="4"/><circle cx="180" cy="220" r="4"/><circle cx="180" cy="420" r="4"/><circle cx="180" cy="520" r="4"/><circle cx="620" cy="120" r="4"/><circle cx="620" cy="220" r="4"/><circle cx="620" cy="420" r="4"/><circle cx="620" cy="520" r="4"/></g>' +
-      '<g><circle cx="180" cy="320" r="30" fill="none" stroke="#dfe6ff" stroke-opacity=".3"/><circle cx="620" cy="320" r="30" fill="none" stroke="#dfe6ff" stroke-opacity=".3"/><circle cx="180" cy="320" r="15" fill="#111216" stroke="#dfe6ff" stroke-width="1.5"/><circle cx="620" cy="320" r="15" fill="#111216" stroke="#dfe6ff" stroke-width="1.5"/><circle cx="180" cy="320" r="5" fill="#dfe6ff"/><circle cx="620" cy="320" r="5" fill="#dfe6ff"/></g>' +
-      '<rect x="340" y="296" width="120" height="48" rx="24" fill="#0d0e11" stroke="#dfe6ff" stroke-opacity=".8"/><text x="400" y="326" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#dfe6ff">MATCH</text></svg>',
+      '<g fill="#0A0A0A" stroke="#007BA7" stroke-opacity=".5" stroke-width="1.3"><circle cx="180" cy="120" r="15"/><circle cx="180" cy="220" r="15"/><circle cx="180" cy="420" r="15"/><circle cx="180" cy="520" r="15"/><circle cx="620" cy="120" r="15"/><circle cx="620" cy="220" r="15"/><circle cx="620" cy="420" r="15"/><circle cx="620" cy="520" r="15"/></g>' +
+      '<g fill="#007BA7" fill-opacity=".7"><circle cx="180" cy="120" r="4"/><circle cx="180" cy="220" r="4"/><circle cx="180" cy="420" r="4"/><circle cx="180" cy="520" r="4"/><circle cx="620" cy="120" r="4"/><circle cx="620" cy="220" r="4"/><circle cx="620" cy="420" r="4"/><circle cx="620" cy="520" r="4"/></g>' +
+      '<g><circle cx="180" cy="320" r="30" fill="none" stroke="#FF2D95" stroke-opacity=".35"/><circle cx="620" cy="320" r="30" fill="none" stroke="#FF2D95" stroke-opacity=".35"/><circle cx="180" cy="320" r="15" fill="#0A0A0A" stroke="#FF2D95" stroke-width="1.6"/><circle cx="620" cy="320" r="15" fill="#0A0A0A" stroke="#FF2D95" stroke-width="1.6"/><circle cx="180" cy="320" r="5" fill="#FF2D95"/><circle cx="620" cy="320" r="5" fill="#FF2D95"/></g>' +
+      '<rect x="340" y="296" width="120" height="48" rx="24" fill="#0A0A0A" stroke="#007BA7" stroke-opacity=".85"/><text x="400" y="326" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#007BA7">MATCH</text></svg>',
 
     gas: '<svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract illustration of a gas sensor reading crossing an alert threshold" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><radialGradient id="g-bg" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#23262e"/><stop offset="1" stop-color="#0a0a0c"/></radialGradient>' +
-      '<linearGradient id="g-ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe6ff" stop-opacity=".28"/><stop offset="1" stop-color="#dfe6ff" stop-opacity="0"/></linearGradient></defs>' +
+      '<defs><radialGradient id="g-bg" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#141822"/><stop offset="1" stop-color="#0A0A0A"/></radialGradient>' +
+      '<linearGradient id="g-ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#007BA7" stop-opacity=".35"/><stop offset="1" stop-color="#007BA7" stop-opacity="0"/></linearGradient></defs>' +
       '<rect width="800" height="600" fill="url(#g-bg)"/>' +
-      '<g stroke="#fff" stroke-opacity=".06"><path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800"/><path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"/></g>' +
+      '<g stroke="#007BA7" stroke-opacity=".1"><path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800"/><path d="M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"/></g>' +
       '<path d="M0 440L100 430 200 436 300 420 400 424 470 400 540 330 610 200 680 120 800 90V600H0Z" fill="url(#g-ar)"/>' +
-      '<path d="M0 440L100 430 200 436 300 420 400 424 470 400 540 330 610 200 680 120 800 90" fill="none" stroke="#f4f4f2" stroke-width="2.6" stroke-linejoin="round"/>' +
-      '<path d="M0 250H800" stroke="#dfe6ff" stroke-opacity=".55" stroke-dasharray="6 9"/><text x="28" y="238" ' + FONT + ' font-size="13" letter-spacing="2" fill="#dfe6ff" fill-opacity=".6">THRESHOLD</text>' +
-      '<circle class="pulse" cx="583" cy="250" r="12"/><circle class="pulse d2" cx="583" cy="250" r="12"/><circle cx="583" cy="250" r="7" fill="#fff"/>' +
-      '<rect x="404" y="176" width="124" height="42" rx="21" fill="#0d0e11" stroke="#dfe6ff" stroke-opacity=".8"/><text x="466" y="203" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#dfe6ff">ALERT</text></svg>',
+      '<path d="M0 440L100 430 200 436 300 420 400 424 470 400 540 330 610 200 680 120 800 90" fill="none" stroke="#007BA7" stroke-width="2.6" stroke-linejoin="round"/>' +
+      '<path d="M0 250H800" stroke="#FF2D95" stroke-opacity=".65" stroke-dasharray="6 9"/><text x="28" y="238" ' + FONT + ' font-size="13" letter-spacing="2" fill="#FF2D95" fill-opacity=".85">THRESHOLD</text>' +
+      '<circle class="pulse" cx="583" cy="250" r="12"/><circle class="pulse d2" cx="583" cy="250" r="12"/><circle cx="583" cy="250" r="7" fill="#FF2D95"/>' +
+      '<rect x="404" y="176" width="124" height="42" rx="21" fill="#0A0A0A" stroke="#FF2D95" stroke-opacity=".85"/><text x="466" y="203" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#FF2D95">ALERT</text></svg>',
 
     env: '<svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract illustration of environmental sensor gauges and trend lines" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><radialGradient id="e-bg" cx="50%" cy="35%" r="80%"><stop offset="0" stop-color="#23262e"/><stop offset="1" stop-color="#0a0a0c"/></radialGradient></defs>' +
+      '<defs><radialGradient id="e-bg" cx="50%" cy="35%" r="80%"><stop offset="0" stop-color="#141822"/><stop offset="1" stop-color="#0A0A0A"/></radialGradient></defs>' +
       '<rect width="800" height="600" fill="url(#e-bg)"/>' +
       '<g fill="none" stroke-width="8" stroke-linecap="round">' +
-      '<circle cx="190" cy="210" r="70" stroke="#fff" stroke-opacity=".09"/><circle cx="190" cy="210" r="70" stroke="#dfe6ff" stroke-dasharray="290 440" transform="rotate(-90 190 210)"/>' +
-      '<circle cx="400" cy="210" r="70" stroke="#fff" stroke-opacity=".09"/><circle cx="400" cy="210" r="70" stroke="#dfe6ff" stroke-opacity=".8" stroke-dasharray="220 440" transform="rotate(-90 400 210)"/>' +
-      '<circle cx="610" cy="210" r="70" stroke="#fff" stroke-opacity=".09"/><circle cx="610" cy="210" r="70" stroke="#dfe6ff" stroke-opacity=".6" stroke-dasharray="340 440" transform="rotate(-90 610 210)"/></g>' +
-      '<g ' + FONT + ' font-size="14" letter-spacing="2.5" fill="#f4f4f2" text-anchor="middle" fill-opacity=".8"><text x="190" y="215">TEMP</text><text x="400" y="215">HUMIDITY</text><text x="610" y="215">AIR</text></g>' +
-      '<g stroke="#fff" stroke-opacity=".06"><path d="M60 360H740M60 430H740M60 500H740"/></g>' +
+      '<circle cx="190" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="190" cy="210" r="70" stroke="#007BA7" stroke-dasharray="290 440" transform="rotate(-90 190 210)"/>' +
+      '<circle cx="400" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="400" cy="210" r="70" stroke="#FF2D95" stroke-opacity=".9" stroke-dasharray="220 440" transform="rotate(-90 400 210)"/>' +
+      '<circle cx="610" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="610" cy="210" r="70" stroke="#007BA7" stroke-opacity=".8" stroke-dasharray="340 440" transform="rotate(-90 610 210)"/></g>' +
+      '<g ' + FONT + ' font-size="14" letter-spacing="2.5" fill="#F4F4F5" text-anchor="middle" fill-opacity=".9"><text x="190" y="215">TEMP</text><text x="400" y="215">HUMIDITY</text><text x="610" y="215">AIR</text></g>' +
+      '<g stroke="#007BA7" stroke-opacity=".1"><path d="M60 360H740M60 430H740M60 500H740"/></g>' +
       '<g fill="none" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">' +
-      '<path d="M60 470C130 440 170 490 240 450S340 400 420 440 540 500 620 430 700 400 740 410" stroke="#f4f4f2"/>' +
-      '<path d="M60 500C140 490 190 470 260 490S380 470 450 480 570 450 650 470 720 460 740 455" stroke="#dfe6ff" stroke-opacity=".55"/></g>' +
-      '<circle cx="740" cy="410" r="6" fill="#fff"/><circle class="pulse" cx="740" cy="410" r="8"/></svg>'
+      '<path d="M60 470C130 440 170 490 240 450S340 400 420 440 540 500 620 430 700 400 740 410" stroke="#007BA7"/>' +
+      '<path d="M60 500C140 490 190 470 260 490S380 470 450 480 570 450 650 470 720 460 740 455" stroke="#FF2D95" stroke-opacity=".75"/></g>' +
+      '<circle cx="740" cy="410" r="6" fill="#FF2D95"/><circle class="pulse" cx="740" cy="410" r="8"/></svg>'
   };
 
   var PLACEHOLDER_PORTRAIT =
     '<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Profile photo placeholder" xmlns="http://www.w3.org/2000/svg">' +
-    '<defs><radialGradient id="pp-bg" cx="50%" cy="36%" r="70%"><stop offset="0" stop-color="#30333c"/><stop offset="1" stop-color="#0c0c0e"/></radialGradient>' +
-    '<linearGradient id="pp-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#40434d"/><stop offset="1" stop-color="#15161a"/></linearGradient>' +
-    '<linearGradient id="pp-rim" x1="0" x2="1"><stop offset="0" stop-color="#dfe6ff" stop-opacity="0"/><stop offset=".5" stop-color="#dfe6ff" stop-opacity=".85"/><stop offset="1" stop-color="#dfe6ff" stop-opacity="0"/></linearGradient></defs>' +
+    '<defs><radialGradient id="pp-bg" cx="50%" cy="36%" r="70%"><stop offset="0" stop-color="#141822"/><stop offset="1" stop-color="#0A0A0A"/></radialGradient>' +
+    '<linearGradient id="pp-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2432"/><stop offset="1" stop-color="#0A0A0A"/></linearGradient>' +
+    '<linearGradient id="pp-rim" x1="0" x2="1"><stop offset="0" stop-color="#007BA7" stop-opacity="0"/><stop offset=".5" stop-color="#FF2D95" stop-opacity=".9"/><stop offset="1" stop-color="#007BA7" stop-opacity="0"/></linearGradient></defs>' +
     '<rect width="400" height="500" fill="url(#pp-bg)"/>' +
-    '<g fill="none" stroke="#fff" stroke-opacity=".07"><path d="M20 90H120L150 120H230"/><path d="M380 150H300L270 180"/><path d="M30 330H90L120 300"/><path d="M370 360H320L290 390"/></g>' +
+    '<g fill="none" stroke="#007BA7" stroke-opacity=".15"><path d="M20 90H120L150 120H230"/><path d="M380 150H300L270 180"/><path d="M30 330H90L120 300"/><path d="M370 360H320L290 390"/></g>' +
     '<path d="M50 500C50 380 130 322 200 312 270 322 350 380 350 500Z" fill="url(#pp-body)"/>' +
-    '<rect x="171" y="246" width="58" height="76" rx="26" fill="#2b2d35"/>' +
+    '<rect x="171" y="246" width="58" height="76" rx="26" fill="#0e141d"/>' +
     '<ellipse cx="200" cy="184" rx="62" ry="78" fill="url(#pp-body)"/>' +
     '<path d="M140 168C142 108 258 108 260 168" fill="none" stroke="url(#pp-rim)" stroke-width="2"/>' +
-    '<text x="200" y="372" text-anchor="middle" ' + FONT + ' font-size="12" letter-spacing="3" fill="#fff" fill-opacity=".55">REPLACE WITH YOUR PHOTO</text>' +
-    '<text x="200" y="392" text-anchor="middle" ' + FONT + ' font-size="10" letter-spacing="1.5" fill="#fff" fill-opacity=".35">Set photo.src in PORTFOLIO</text></svg>';
+    '<text x="200" y="372" text-anchor="middle" ' + FONT + ' font-size="12" letter-spacing="3" fill="#007BA7">REPLACE WITH YOUR PHOTO</text>' +
+    '<text x="200" y="392" text-anchor="middle" ' + FONT + ' font-size="10" letter-spacing="1.5" fill="#FF2D95" fill-opacity=".85">Set photo.src in PORTFOLIO</text></svg>';
 
   /* ==========================================================================
      COMPONENTS: each returns markup / fills its section from PORTFOLIO
@@ -502,7 +502,18 @@
       if (fresh || !pts.length) {
         var n = Math.min(64, Math.round(w * h / 24000));
         pts = [];
-        for (var i = 0; i < n; i++) pts.push({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.16, vy: (Math.random() - 0.5) * 0.16, r: Math.random() * 1.2 + 0.4, a: Math.random() * 0.35 + 0.08 });
+        for (var i = 0; i < n; i++) {
+          var isRose = Math.random() < 0.22;
+          pts.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.16,
+            vy: (Math.random() - 0.5) * 0.16,
+            r: Math.random() * 1.3 + 0.4,
+            a: Math.random() * 0.38 + 0.1,
+            isRose: isRose
+          });
+        }
       }
     }
     function draw() {
@@ -510,12 +521,28 @@
       var i, j, p, q, dx, dy, d;
       for (i = 0; i < pts.length; i++) {
         p = pts[i];
-        if (!reduce) { p.x += p.vx; p.y += p.vy; if (p.x < -10) p.x = w + 10; if (p.x > w + 10) p.x = -10; if (p.y < -10) p.y = h + 10; if (p.y > h + 10) p.y = -10; }
-        ctx.fillStyle = 'rgba(223,230,255,' + p.a + ')';
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+        if (!reduce) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+          if (p.y < -10) p.y = h + 10;
+          if (p.y > h + 10) p.y = -10;
+        }
+        ctx.fillStyle = p.isRose ? ('rgba(255,45,149,' + p.a + ')') : ('rgba(0,123,167,' + p.a + ')');
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+        ctx.fill();
         for (j = i + 1; j < pts.length; j++) {
           q = pts[j]; dx = p.x - q.x; dy = p.y - q.y; d = dx * dx + dy * dy;
-          if (d < 12100) { ctx.strokeStyle = 'rgba(223,230,255,' + ((1 - Math.sqrt(d) / 110) * 0.085) + ')'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
+          if (d < 12100) {
+            var lineAlpha = (1 - Math.sqrt(d) / 110) * 0.12;
+            ctx.strokeStyle = (p.isRose || q.isRose) ? ('rgba(255,45,149,' + (lineAlpha * 0.75) + ')') : ('rgba(0,123,167,' + lineAlpha + ')');
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
         }
       }
     }
