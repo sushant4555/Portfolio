@@ -31,7 +31,9 @@
     pin: '<path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',
     github: '<path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/>',
     instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".7" fill="currentColor"/>',
-    linkedin: '<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>'
+    linkedin: '<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>',
+    sun: '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>',
+    moon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
   };
   function icon(name, cls) {
     var f = FILLED[name];
@@ -101,7 +103,14 @@
       $('#cvSlot').outerHTML = cvAction;
       $('#menu').innerHTML = P.nav.map(function (n, i) {
         return '<a class="m-link" style="--i:' + i + '" href="#' + esc(n.id) + '" data-nav="' + esc(n.id) + '">' + esc(n.label) + '</a>';
-      }).join('') + (P.contact.cv ? '<div style="margin-top:24px"><a class="btn btn-sm" href="' + esc(P.contact.cv) + '" data-cert-modal data-cert-title="' + esc(P.site.name + ' — Curriculum Vitae (CV)') + '" data-cert-sub="Electronics &amp; Telecommunication Engineering • Resume">View CV ' + icon('ur', 'ic-ur') + '</a></div>' : '');
+      }).join('') +
+      '<div class="m-tools" style="margin-top:28px; display:flex; flex-direction:column; gap:16px;">' +
+        '<button class="btn btn-ghost btn-sm m-theme-btn" type="button" id="mThemeToggle" aria-label="Toggle theme">' +
+          '<span class="m-theme-icon" aria-hidden="true">' + icon('sun') + '</span>' +
+          '<span class="m-theme-label">Switch Theme</span>' +
+        '</button>' +
+        (P.contact.cv ? '<div><a class="btn btn-sm" href="' + esc(P.contact.cv) + '" data-cert-modal data-cert-title="' + esc(P.site.name + ' — Curriculum Vitae (CV)') + '" data-cert-sub="Electronics &amp; Telecommunication Engineering • Resume">View CV ' + icon('ur', 'ic-ur') + '</a></div>' : '') +
+      '</div>';
     }
   };
 
@@ -514,14 +523,16 @@
           if (p.y < -10) p.y = h + 10;
           if (p.y > h + 10) p.y = -10;
         }
-        ctx.fillStyle = p.isRose ? ('rgba(255,45,149,' + p.a + ')') : ('rgba(0,123,167,' + p.a + ')');
+        var isLight = root.getAttribute('data-theme') === 'light';
+        var dotAlpha = isLight ? (p.a * 0.7) : p.a;
+        ctx.fillStyle = p.isRose ? ('rgba(255,45,149,' + dotAlpha + ')') : ('rgba(0,123,167,' + dotAlpha + ')');
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, 6.2832);
         ctx.fill();
         for (j = i + 1; j < pts.length; j++) {
           q = pts[j]; dx = p.x - q.x; dy = p.y - q.y; d = dx * dx + dy * dy;
           if (d < 12100) {
-            var lineAlpha = (1 - Math.sqrt(d) / 110) * 0.12;
+            var lineAlpha = (1 - Math.sqrt(d) / 110) * (isLight ? 0.08 : 0.12);
             ctx.strokeStyle = (p.isRose || q.isRose) ? ('rgba(255,45,149,' + (lineAlpha * 0.75) + ')') : ('rgba(0,123,167,' + lineAlpha + ')');
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -632,6 +643,80 @@
     }
   };
 
+  /* ---- Theme Management ---- */
+  function initTheme() {
+    var themeToggle = $('#themeToggle');
+    var mThemeToggle = $('#mThemeToggle');
+    var metaThemeColor = $('#metaThemeColor') || $('meta[name="theme-color"]');
+
+    function applyTheme(theme, save) {
+      if (theme !== 'light' && theme !== 'dark') theme = 'dark';
+      root.setAttribute('data-theme', theme);
+      if (save) {
+        try { localStorage.setItem('portfolio-theme', theme); } catch (e) {}
+      }
+      if (metaThemeColor) {
+        metaThemeColor.setAttribute('content', theme === 'light' ? '#F4F6F9' : '#0A0A0A');
+      }
+      var isLight = theme === 'light';
+      var label = isLight ? 'Switch to dark theme' : 'Switch to light theme';
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.setAttribute('title', label);
+      }
+      if (mThemeToggle) {
+        mThemeToggle.setAttribute('aria-label', label);
+        var mIcon = mThemeToggle.querySelector('.m-theme-icon');
+        var mLabel = mThemeToggle.querySelector('.m-theme-label');
+        if (mIcon) mIcon.innerHTML = isLight ? icon('moon') : icon('sun');
+        if (mLabel) mLabel.textContent = isLight ? 'Dark Theme' : 'Light Theme';
+      }
+    }
+
+    function toggle() {
+      var current = root.getAttribute('data-theme') || 'dark';
+      var next = current === 'light' ? 'dark' : 'light';
+      applyTheme(next, true);
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggle);
+    }
+    if (mThemeToggle) {
+      mThemeToggle.addEventListener('click', toggle);
+    }
+
+    // Read active theme (already set by head script or fallback)
+    var activeTheme = root.getAttribute('data-theme');
+    if (!activeTheme) {
+      try {
+        activeTheme = localStorage.getItem('portfolio-theme');
+      } catch (e) {}
+      if (!activeTheme && window.matchMedia) {
+        activeTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+    }
+    applyTheme(activeTheme || 'dark', false);
+
+    // Cross-tab synchronization
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'portfolio-theme' && e.newValue) {
+        applyTheme(e.newValue, false);
+      }
+    });
+
+    // Listen to OS scheme changes if user hasn't explicitly chosen
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function (e) {
+        try {
+          if (!localStorage.getItem('portfolio-theme')) {
+            applyTheme(e.matches ? 'light' : 'dark', false);
+          }
+        } catch (err) {}
+      });
+    }
+  }
+
   /* ==========================================================================
      BOOT
      ========================================================================== */
@@ -639,7 +724,7 @@
     try {
       Navbar.render(); Hero.render(); About.render(); Expertise.render(); Skills.render();
       Experience.render(); Projects.render(); Certifications.render(); Contact.render(); Footer.render();
-      initReveal(); initSpy(); initMenu(); initPointerFx(); initCursor(); initScroll(); initParticles(); initForm(); CertModal.init();
+      initTheme(); initReveal(); initSpy(); initMenu(); initPointerFx(); initCursor(); initScroll(); initParticles(); initForm(); CertModal.init();
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
     } catch (err) {
       // Never leave the page blank: fall back to a static, fully visible layout
