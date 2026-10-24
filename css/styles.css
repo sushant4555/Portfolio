@@ -734,10 +734,11 @@ main, footer {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(rgba(0, 123, 167, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 123, 167, 0.08) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 60% at 65% 45%, #000, transparent 75%);
+  background-image: linear-gradient(rgba(0, 123, 167, 0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 123, 167, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 55% 45%, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 65% 55% at 55% 45%, #000 15%, transparent 75%);
 }
 
 .hero-glow {
@@ -746,21 +747,40 @@ main, footer {
   border-radius: 50%;
 }
 
+/* Large, soft Cerulean Blue radial gradient behind the portrait */
 .hero-glow.g1 {
-  width: min(90vw, 900px);
-  aspect-ratio: 1;
-  right: -18%;
-  top: -16%;
-  background: radial-gradient(circle, rgba(0, 123, 167, 0.2), transparent 64%);
+  width: min(100vw, 1100px);
+  aspect-ratio: 1.1;
+  right: -15%;
+  top: -12%;
+  background: radial-gradient(
+    ellipse 65% 60% at 50% 50%,
+    rgba(0, 123, 167, 0.09) 0%,
+    rgba(0, 123, 167, 0.07) 20%,
+    rgba(0, 123, 167, 0.045) 40%,
+    rgba(0, 123, 167, 0.02) 60%,
+    rgba(0, 123, 167, 0.006) 78%,
+    transparent 100%
+  );
+  filter: blur(45px);
 }
 
+/* Subtle Neon Rose ambient glow toward the lower-left side */
 .hero-glow.g2 {
-  width: min(70vw, 600px);
+  width: min(80vw, 750px);
   aspect-ratio: 1;
-  left: -22%;
-  bottom: -24%;
-  opacity: .75;
-  background: radial-gradient(circle, rgba(255, 45, 149, 0.14), transparent 62%);
+  left: -18%;
+  bottom: -20%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 45, 149, 0.045) 0%,
+    rgba(255, 45, 149, 0.03) 25%,
+    rgba(255, 45, 149, 0.015) 50%,
+    rgba(255, 45, 149, 0.005) 72%,
+    transparent 100%
+  );
+  filter: blur(50px);
+  opacity: 1;
 }
 
 .signal {
@@ -771,7 +791,7 @@ main, footer {
   height: 120px;
   pointer-events: none;
   overflow: hidden;
-  opacity: .6;
+  opacity: .28;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 25%, #000 75%, transparent);
 }
@@ -782,8 +802,7 @@ main, footer {
   top: 0;
   width: 200%;
   height: 100%;
-  filter: drop-shadow(0 0 8px rgba(0, 123, 167, 0.5));
-  animation: signal 28s linear infinite;
+  animation: signal 32s linear infinite;
 }
 
 @keyframes signal {
@@ -835,7 +854,7 @@ main, footer {
 }
 
 .hero-title .grad {
-  background: linear-gradient(135deg, #FFFFFF 20%, #007BA7 65%, #FF2D95 100%);
+  background: linear-gradient(135deg, #FFFFFF 42%, #007BA7 82%, #FF2D95 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -869,10 +888,19 @@ main, footer {
   transition: transform .9s var(--ease);
 }
 
+/* Large, soft Cerulean Blue radial glow behind portrait with multiple smooth transparent stops */
 .portrait-glow {
   position: absolute;
-  inset: -14% -14% 0;
-  background: radial-gradient(circle at 50% 42%, rgba(0, 123, 167, 0.28), rgba(255, 45, 149, 0.12) 55%, transparent 70%);
+  inset: -22% -22% -8%;
+  background: radial-gradient(
+    ellipse 62% 58% at 50% 44%,
+    rgba(0, 123, 167, 0.13) 0%,
+    rgba(0, 123, 167, 0.09) 25%,
+    rgba(0, 123, 167, 0.045) 50%,
+    rgba(0, 123, 167, 0.015) 72%,
+    transparent 90%
+  );
+  filter: blur(35px);
   pointer-events: none;
 }
 
@@ -880,8 +908,8 @@ main, footer {
   position: absolute;
   inset: 0;
   will-change: transform;
-  -webkit-mask-image: radial-gradient(ellipse 74% 70% at 50% 40%, #000 50%, transparent 100%);
-  mask-image: radial-gradient(ellipse 74% 70% at 50% 40%, #000 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 72% at 50% 40%, #000 52%, rgba(0, 0, 0, 0.65) 80%, transparent 100%);
+  mask-image: radial-gradient(ellipse 75% 72% at 50% 40%, #000 52%, rgba(0, 0, 0, 0.65) 80%, transparent 100%);
 }
 
 .portrait-frame img, .portrait-frame svg {
@@ -892,16 +920,16 @@ main, footer {
 }
 
 .portrait-frame img {
-  filter: contrast(1.08) drop-shadow(0 0 36px rgba(0, 123, 167, 0.28));
+  /* Strictly preserve natural portrait colors, tones, and edges. Zero artificial filters or halos. */
+  filter: none;
 }
 
 .corner {
   position: absolute;
-  width: 26px;
-  height: 26px;
-  border: 2px solid var(--accent);
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid rgba(0, 123, 167, 0.45);
   pointer-events: none;
-  filter: drop-shadow(0 0 6px rgba(255, 45, 149, 0.6));
 }
 
 .corner.tl {

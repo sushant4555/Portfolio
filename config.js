@@ -117,7 +117,7 @@ window.PORTFOLIO = {
         kind: "Web platform",
         description: "A platform designed to connect students and candidates with relevant internships and job opportunities using intelligent matching.",
         tags: ["Web App", "Matching Logic", "Database"],
-        art: "match",                         // placeholder artwork: match | gas | env
+        art: "match",                         // placeholder artwork: match | gas
         image: "",                            // optional: your own screenshot URL / data URI
         demo: "",                             // View Project link
         github: ""                            // repo link (falls back to your GitHub profile)
@@ -128,13 +128,6 @@ window.PORTFOLIO = {
         description: "An electronics-based safety system that detects LPG gas leakage and provides an alert for improved safety.",
         tags: ["Electronics", "Gas Sensor", "Alert System"],
         art: "gas", image: "", demo: "", github: ""
-      },
-      {
-        title: "Environmental Monitoring System",
-        kind: "IoT",
-        description: "An IoT-based monitoring system using sensors and Arduino to monitor environmental parameters.",
-        tags: ["IoT", "Arduino", "Sensors"],
-        art: "env", image: "", demo: "", github: ""
       }
     ]
   },

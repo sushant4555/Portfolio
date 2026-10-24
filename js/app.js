@@ -69,21 +69,7 @@
       '<path d="M0 440L100 430 200 436 300 420 400 424 470 400 540 330 610 200 680 120 800 90" fill="none" stroke="#007BA7" stroke-width="2.6" stroke-linejoin="round"/>' +
       '<path d="M0 250H800" stroke="#FF2D95" stroke-opacity=".65" stroke-dasharray="6 9"/><text x="28" y="238" ' + FONT + ' font-size="13" letter-spacing="2" fill="#FF2D95" fill-opacity=".85">THRESHOLD</text>' +
       '<circle class="pulse" cx="583" cy="250" r="12"/><circle class="pulse d2" cx="583" cy="250" r="12"/><circle cx="583" cy="250" r="7" fill="#FF2D95"/>' +
-      '<rect x="404" y="176" width="124" height="42" rx="21" fill="#0A0A0A" stroke="#FF2D95" stroke-opacity=".85"/><text x="466" y="203" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#FF2D95">ALERT</text></svg>',
-
-    env: '<svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Abstract illustration of environmental sensor gauges and trend lines" xmlns="http://www.w3.org/2000/svg">' +
-      '<defs><radialGradient id="e-bg" cx="50%" cy="35%" r="80%"><stop offset="0" stop-color="#141822"/><stop offset="1" stop-color="#0A0A0A"/></radialGradient></defs>' +
-      '<rect width="800" height="600" fill="url(#e-bg)"/>' +
-      '<g fill="none" stroke-width="8" stroke-linecap="round">' +
-      '<circle cx="190" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="190" cy="210" r="70" stroke="#007BA7" stroke-dasharray="290 440" transform="rotate(-90 190 210)"/>' +
-      '<circle cx="400" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="400" cy="210" r="70" stroke="#FF2D95" stroke-opacity=".9" stroke-dasharray="220 440" transform="rotate(-90 400 210)"/>' +
-      '<circle cx="610" cy="210" r="70" stroke="#007BA7" stroke-opacity=".15"/><circle cx="610" cy="210" r="70" stroke="#007BA7" stroke-opacity=".8" stroke-dasharray="340 440" transform="rotate(-90 610 210)"/></g>' +
-      '<g ' + FONT + ' font-size="14" letter-spacing="2.5" fill="#F4F4F5" text-anchor="middle" fill-opacity=".9"><text x="190" y="215">TEMP</text><text x="400" y="215">HUMIDITY</text><text x="610" y="215">AIR</text></g>' +
-      '<g stroke="#007BA7" stroke-opacity=".1"><path d="M60 360H740M60 430H740M60 500H740"/></g>' +
-      '<g fill="none" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">' +
-      '<path d="M60 470C130 440 170 490 240 450S340 400 420 440 540 500 620 430 700 400 740 410" stroke="#007BA7"/>' +
-      '<path d="M60 500C140 490 190 470 260 490S380 470 450 480 570 450 650 470 720 460 740 455" stroke="#FF2D95" stroke-opacity=".75"/></g>' +
-      '<circle cx="740" cy="410" r="6" fill="#FF2D95"/><circle class="pulse" cx="740" cy="410" r="8"/></svg>'
+      '<rect x="404" y="176" width="124" height="42" rx="21" fill="#0A0A0A" stroke="#FF2D95" stroke-opacity=".85"/><text x="466" y="203" text-anchor="middle" ' + FONT + ' font-size="15" font-weight="600" letter-spacing="3" fill="#FF2D95">ALERT</text></svg>'
   };
 
   var PLACEHOLDER_PORTRAIT =
